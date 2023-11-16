@@ -12,4 +12,4 @@ module MUX4 (
             default: data_out = 32'bz;
         endcase
     end
-endmodule
+endmodule 
