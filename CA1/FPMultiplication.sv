@@ -4,7 +4,7 @@ module FPMultiplication(
     output overflow,
     output underflow,
     output exception,
-    output reg  [31:0] result
+    output reg [31:0] result
 );
     reg [23:0] A_Mantissa,B_Mantissa;
     reg [22:0] Mantissa;
@@ -28,5 +28,6 @@ module FPMultiplication(
         Exponent = Temp_Mantissa[47] ? Temp_Exponent+1'b1 : Temp_Exponent;
         Sign = A_sign^B_sign;
         result = {Sign,Exponent,Mantissa};
+        result = (A == 32'b0 | B == 32'b0) ? 32'b0 : result;
     end
 endmodule

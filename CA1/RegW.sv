@@ -7,7 +7,7 @@ module RegW (
     output reg [31:0] w3 [3:0]
 );
 
-reg [31:0] w [3:0][3:0];
+reg [31:0] w [0:3][3:0];
 assign w0 = {w[0]};
 assign w1 = {w[1]};
 assign w2 = {w[2]};
