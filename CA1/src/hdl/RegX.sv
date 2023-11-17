@@ -5,7 +5,7 @@ module RegX (
 
 always @(clock) begin
     if(read)
-        $readmemh("X.txt", out);
+        $readmemh("file/x.txt", out);
 end
     
 endmodule

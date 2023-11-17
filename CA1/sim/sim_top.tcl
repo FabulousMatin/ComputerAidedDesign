@@ -4,7 +4,7 @@
 	exec vlib work
 	vmap work work
 	
-	set TB					"tb_file_name"
+	set TB				"TB"
 	set hdl_path			"../src/hdl"
 	set inc_path			"../src/inc"
 	
@@ -13,10 +13,18 @@
 
 #============================ Add verilog files  ===============================
 # Pleas add other module here	
-	vlog 	+acc -incr -source  +define+SIM 	$hdl_path/verilog_file_name.v
-	vlog 	+acc -incr -source  +define+SIM 	$inc_path/implementation_option.vh
+	vlog 	+acc -incr -source  +define+SIM 	$hdl_path/Controller.v
+	vlog 	+acc -incr -source  +define+SIM 	$hdl_path/FPAddition.v
+	vlog 	+acc -incr -source  +define+SIM 	$hdl_path/FPMultiplication.sv
+	vlog 	+acc -incr -source  +define+SIM 	$hdl_path/MaxSet.v
+	vlog 	+acc -incr -source  +define+SIM 	$hdl_path/MUX2.sv
+	vlog 	+acc -incr -source  +define+SIM 	$hdl_path/MUX4.sv
+	vlog 	+acc -incr -source  +define+SIM 	$hdl_path/PU.sv
+	vlog 	+acc -incr -source  +define+SIM 	$hdl_path/RegW.sv
+	vlog 	+acc -incr -source  +define+SIM 	$hdl_path/RegX.sv
+	vlog 	+acc -incr -source  +define+SIM 	$hdl_path/RegY.sv
 		
-	vlog 	+acc -incr -source  +incdir+$inc_path +define+SIM 	./tb/$TB.v
+	vlog 	+acc -incr -source  +define+SIM 	./tb/$TB.v
 	onerror {break}
 
 #================================ simulation ====================================
@@ -30,7 +38,7 @@
 	add wave -hex -group 	 	{TB}				sim:/$TB/*
 	add wave -hex -group 	 	{top}				sim:/$TB/uut/*	
 	add wave -hex -group -r		{all}				sim:/$TB/*
-
+	
 #=========================== Configure wave signals =============================
 	
 	configure wave -signalnamewidth 2

@@ -15,7 +15,7 @@ assign w3 = {w[3]};
 
 always @(clock) begin
     if(read)
-        $readmemh("w.txt", w);
+        $readmemh("file/w.txt", w);
 end
     
 endmodule
