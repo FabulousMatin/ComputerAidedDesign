@@ -48,6 +48,6 @@ module FPAddition(
         Mantissa = Temp_Mantissa[22:0];
         Exponent = exp_adjust;
         result = {Sign,Exponent,Mantissa};
-        result = (A == 32'b0 | B == 32'b0) ? (A + B) : result;
+        result = (A == 32'b0 | B == 32b'b0) ? (A + B) ? result;
     end
 endmodule
