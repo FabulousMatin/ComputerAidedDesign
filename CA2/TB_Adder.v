@@ -2,9 +2,10 @@
 
 module TB ();
     
-    reg a, b, cin;
-    wire s, cout;
-    Adder add(a, b, cin, s, cout);
+    reg [9:0] a, b;
+    reg cin;
+    wire [10:0] s;
+    AdderCascade #(10) adrcsc(a, b, cin, s);
 
     always begin
         #10
