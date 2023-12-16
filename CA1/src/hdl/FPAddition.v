@@ -36,10 +36,10 @@ module FPAddition(
         exp_adjust = A_Exponent;
         if(carry) begin
                 Temp_Mantissa = Temp_Mantissa >> 1;
-                exp_adjust = exp_adjust+1'b1;
+                exp_adjust = exp_adjust + 1'b1;
         end
         else if(Temp_Mantissa != 24'b0) begin
-            while(!Temp_Mantissa[23]) begin
+            while(!Temp_Mantissa[23] && exp_adjust != 0) begin
                 Temp_Mantissa = Temp_Mantissa << 1;
                 exp_adjust = exp_adjust - 1'b1;
             end
