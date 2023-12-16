@@ -3,7 +3,7 @@ module MUX4REG #(parameter bits = 1) (
     input [bits - 1 : 0] A, B, C, D,
     input [1:0] select,
 
-    output [bits - 1 : 0] out
+    output reg [bits - 1 : 0] out
 );
     // S1S0
     //  00 -> A

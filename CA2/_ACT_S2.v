@@ -14,7 +14,7 @@ module _ACT_S2 #(parameter bits = 2) (
     assign D = (S0 == 0 & S1 == 0) ? D00 :
                (S0 == 0 & S1 == 1) ? D01 :
                (S0 == 1 & S1 == 0) ? D10 :
-               (S0 == 1 & S1 == 1) ? D11 : bits'bz;
+               (S0 == 1 & S1 == 1) ? D11 : 'bz;
 
     always @(posedge clock) begin
         if(reset)
