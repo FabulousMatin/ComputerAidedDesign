@@ -10,7 +10,11 @@ module OutMem #(parameter n_th) (
 
     reg [31:0] memout [0:127];
     integer i;
-
+    initial begin
+        for (i = 0; i < 128; i = i + 1) begin
+            memout[i] = 32'b0;
+        end
+    end
     assign out[0] = (load == 1) ? memout[address][31:24] : 8'bz;
     assign out[1] = (load == 1) ? memout[address][23:16] : 8'bz;
     assign out[2] = (load == 1) ? memout[address][15: 8] : 8'bz;

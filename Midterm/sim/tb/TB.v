@@ -5,7 +5,7 @@ module TB();
     // 5 71 83
     // 2 71 81
     // 4 74 84
-    reg [7:0] x = 5, y = 71, z = 83;
+    reg [7:0] x = 4, y = 70, z = 76;
     wire done;
 
     Convolution cv(clock, reset, x, y, z, done);

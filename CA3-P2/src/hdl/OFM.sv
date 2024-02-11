@@ -6,6 +6,13 @@ module OFM #(parameter n_th) (
 );
     reg [31:0] ofm [0:127];
 
+    integer i;
+    initial begin
+        for (i = 0; i < 128; i = i + 1) begin
+            ofm[i] = 32'b0;
+        end
+    end
+
     always @(posedge clock) begin
         if(write) begin;
             case (offset)

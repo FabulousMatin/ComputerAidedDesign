@@ -53,9 +53,6 @@ module ProcessUnit (
     Adder #(12) fpa2({sum_res_1[10], sum_res_1[10:0]}, {sum_res_2[10], sum_res_2[10:0]}, 1'b0, sum_res_in);
 
     REG #(12) sum_reg(clock, 1'b0, load_sum, sum_res_in[11:0], sum_res_out);
-    
-    // assign out = (sum_res_out[11] == 0) ? {sum_res_out[11], sum_res_out[6], sum_res_out[5:3]} : 5'b0;
-    // assign s = (out == 5'b0) ? 0 : 1;
 
     MUX2 #(5) mux_out({sum_res_out[11], sum_res_out[6], sum_res_out[5:3]}, 5'b0, sum_res_out[11], out);
     OR6 is_zero(out[0], out[1], out[2], out[3], out[4], 0, s);
